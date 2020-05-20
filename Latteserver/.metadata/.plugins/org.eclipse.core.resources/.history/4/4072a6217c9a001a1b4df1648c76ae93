@@ -1,0 +1,8 @@
+package rcServer;
+
+public class Snippet {
+	public static void main(String[] args) {
+		read
+	}
+}
+
