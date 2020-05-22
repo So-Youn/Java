@@ -1,0 +1,40 @@
+package serial;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+import gnu.io.SerialPortEvent;
+import gnu.io.SerialPortEventListener;
+
+//�̺�Ʈ�� ���ؼ� ó���ϴ� ������Ŭ����
+//�ø�����Ʈ�� �����Ͱ� ���۵ɶ����� �̺�Ʈ�� �߻��ϰ� �̺�Ʈ�� �߻��ɶ� �����͸� �б�
+public class SerialListener  implements SerialPortEventListener{
+	private InputStream in;
+	public SerialListener(InputStream in) {
+		super();
+		this.in = in;
+	}
+	//�̺�Ʈ�� �߻��Ҷ����� ȣ��Ǵ� �޼ҵ�
+	//�߻��� �̺�Ʈ�� ������ ��� �ִ� ��ü - SerialPortEvent
+	@Override
+	public void serialEvent(SerialPortEvent event) {
+		//���۵� �����Ͱ� �ִ� ��� �����͸� �о �ֿܼ� ���
+		if(event.getEventType()==SerialPortEvent.DATA_AVAILABLE) {
+			try {
+				//���۵Ǵ� �������� ũ�⸦ ����
+				int check_size = in.available();
+				byte[] data = new byte[check_size];
+				in.read(data,0,check_size);
+				System.out.println("���� ������:"+new String(data));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}//
+		}
+	}
+}
+
+
+
+
+
+

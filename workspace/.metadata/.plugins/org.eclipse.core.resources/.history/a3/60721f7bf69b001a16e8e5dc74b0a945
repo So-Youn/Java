@@ -1,0 +1,13 @@
+package can.basic;
+
+import java.io.OutputStream;
+
+public class CANReadWriteTest {
+	SerialConnect serialConnect; //CAN 시리얼 포트 연결
+	OutputStream out; //can과 output통신할 스트림
+	public static void main(String[] args) {
+	
+
+	}
+
+}

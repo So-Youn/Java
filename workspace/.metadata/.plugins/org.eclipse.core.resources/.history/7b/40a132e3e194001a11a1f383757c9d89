@@ -1,0 +1,27 @@
+package basic;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+public class SerialLEDArduinoReaderThread extends Thread{
+	InputStream in;
+
+	public SerialLEDArduinoReaderThread(InputStream in) {
+		super();
+		this.in = in;
+	}
+	
+
+
+	public void run() {
+		int ledstate = 0;
+		try {
+			while ((ledstate = System.in.read()) > -1) { // 입력받는 값이 없을 대의 리턴값 :
+				in.read();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+}

@@ -1,0 +1,7 @@
+package can.basic;
+
+public class CANConnect {
+	public CANConnect(String portname){
+		
+	}
+}
